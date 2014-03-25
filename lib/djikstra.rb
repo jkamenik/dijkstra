@@ -1,5 +1,9 @@
 require "djikstra/version"
+require 'djikstra/cli'
+require 'djikstra/graph'
+require 'djikstra/node'
+require 'djikstra/edge'
 
 module Djikstra
-  # Your code goes here...
+  class ParseError < RuntimeError; end
 end
