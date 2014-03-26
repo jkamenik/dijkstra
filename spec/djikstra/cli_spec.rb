@@ -13,12 +13,6 @@ describe Djikstra::Cli do
     cli.run
   end
   
-  it 'raises an exception if the graph file is invalid' do
-    expect {
-      Djikstra::Cli.new(spec_file('invalid.txt'),'A','B').run
-    }.to raise_error Djikstra::ParseError
-  end
-  
   context 'parse' do
     it 'returns an array of weighted edges' do
       items = Djikstra::Cli.new(spec_file('simple.txt'),'A','B').parse

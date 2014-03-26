@@ -6,4 +6,5 @@ require 'djikstra/edge'
 
 module Djikstra
   class ParseError < RuntimeError; end
+  class GraphError < RuntimeError; end
 end

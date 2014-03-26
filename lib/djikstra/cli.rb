@@ -29,7 +29,7 @@ module Djikstra
         f.readlines.each_with_index do |line,idx|
           items = line.split /\[(\w+),(\w+),(\d+)\]/
           
-          # only care about the center 3
+          # only care about the center matches
           edges.push [items[1],items[2],items[3],idx+1]
         end
       end
@@ -44,6 +44,9 @@ module Djikstra
       dist  = graph.shortest_path_distance
       
       puts "Shortest path is [#{path.join(',')}] with a total cost of #{dist}"
+    rescue ParseError, GraphError => e
+      puts e.to_s
+      exit 1
     end
   end
 end
