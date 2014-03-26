@@ -34,4 +34,12 @@ describe 'CLI' do
   it 'states the shortest path' do
     expect(djikstra('example.txt','A','G').output).to eq 'Shortest path is [A,B,E,G] with a total cost of 6'
   end
+  
+  it 'works for the simple case' do
+    expect(djikstra('simple.txt','A','B').output).to eq 'Shortest path is [A,B] with a total cost of 1'
+  end
+  
+  it 'works for a linear case' do
+    expect(djikstra('linear.txt','A','C').output).to eq 'Shortest path is [A,B,C] with a total cost of 2'
+  end
 end
