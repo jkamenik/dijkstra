@@ -1,7 +1,16 @@
 module Djikstra
   class Graph
-    def initialize
+    attr_reader :nodes, :edges, :shortest_path_distance
+    
+    def initialize(edges=[])
       @nodes = {}
+      @edges = []
+      
+      edges.each do |e|
+        args = e.unshift self
+        
+        @edges.push Edge.new(*args)
+      end
     end
     
     def find_node(name)
@@ -12,62 +21,55 @@ module Djikstra
       @nodes[name] = node
       node
     end
-    # attr_accessor :nodes, :shortest_path_distance
-    # 
-    # def initialize(edges)
-    #   @nodes = []
-    #   edges.each do |edge|
-    #     
-    # end
-    # 
-    # def shortest_path_between(start,stop)
-    #   p graph
-    #   dist     = {}
-    #   previous = {}
-    #   universe = []
-    #   
-    #   graph.each do |edge|
-    #     universe.push edge.start
-    #     universe.push edge.stop
-    #     
-    #     dist[edge.start] = :infinity
-    #     dist[edge.stop] = :infinity
-    #     
-    #     previous[edge.start] = nil
-    #     previous[edge.stop] = nil
-    #   end
-    #   
-    #   dist[@start] = 0
-    #   
-    #   universe.uniq!
-    #   
-    #   p dist, previous, universe
-    #   
-    #   while universe.size > 0
-    #     node = smallest_dist(dist,universe)
-    #     universe.delete node
-    #     
-    #     break if dist[node] == :infinity
-    #   end
-    # end
-    # 
-    # def neighbors_of(vertex)
-    # end
-    # 
-    # def smallest_dist(dist,universe)
-    #   smallest = universe.first
-    #   length   = dist[smallest]
-    #   
-    #   universe.each do |node|
-    #     next if dist[node] == :infinity
-    # 
-    #     if dist[node] < length
-    #       smallest = node
-    #       length   = dist[node]
-    #     end
-    #   end
-    #   
-    #   p smallest
-    # end
+
+    def shortest_path_between(start,stop)
+      universe = []
+      
+      @nodes.each do |key,node|
+        node.reset
+        
+        universe.push node
+      end
+      
+      start_node = find_node(start)
+      start_node.distance = 0
+      
+      while universe.size > 0
+        start_node.neighbors.each do |neighbor|
+          next unless universe.include? neighbor #skip visited nodes
+          
+          dist = start_node.distance + start_node.distance_to(neighbor)
+          
+          if neighbor > dist
+            neighbor.distance = dist
+            neighbor.previous_node = start_node
+          end
+        end
+        
+        universe.delete start_node
+        
+        start_node = closest(universe)
+      end
+      
+      # walk backwards
+      start_node = find_node(start)
+      node       = find_node(stop)
+      @shortest_path_distance = node.distance
+      path       = [node.name]
+      while node != start_node
+        node = node.previous_node
+        path.insert 0, node.name
+      end
+      path
+    end
+    
+    def closest(universe)
+      u = universe.first
+      
+      universe.each do |node|
+        u = node if u > node.distance
+      end
+      u
+    end
   end
 end
