@@ -42,4 +42,14 @@ describe 'CLI' do
   it 'works for a linear case' do
     expect(djikstra('linear.txt','A','C').output).to eq 'Shortest path is [A,B,C] with a total cost of 2'
   end
+  
+  it 'shows an error if the end node doesn\'t exist' do
+    # "E" doesn't exist as a node.
+    expect(djikstra('linear.txt','A','E').output).to eq 'Node "E" not found!'
+  end
+  
+  it 'shows an error if the end node doesn\'t exist' do
+    # "E" doesn't exist as a node.
+    expect(djikstra('linear.txt','E','C').output).to eq 'Node "E" not found!'
+  end
 end

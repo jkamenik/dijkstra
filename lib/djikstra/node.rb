@@ -23,8 +23,12 @@ module Djikstra
       @weights[node.name]
     end
     
+    def infinite?
+      @distance == :infinity
+    end
+    
     def >(number)
-      return true if @distance == :infinity
+      return true if infinite?
       return false if number == :infinity
       
       distance > number
