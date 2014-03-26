@@ -41,7 +41,7 @@ module Djikstra
       
       graph = Graph.new(parse)
       path  = graph.shortest_path_between(@start,@stop)
-      dist  = grpah.shortest_path_distance
+      dist  = graph.shortest_path_distance
       
       puts "Shortest path is [#{path.join(',')}] with a total cost of #{dist}"
     end
