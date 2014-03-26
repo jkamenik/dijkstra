@@ -24,7 +24,7 @@ describe 'CLI' do
     args[0] = File.expand_path("../../files/#{args[0]}",__FILE__) if args[0]
     output  = `ruby #{command} #{args.join ' '}`
     
-    Output.new output, $?.exitstatus
+    Output.new output.chop, $?.exitstatus
   end
   
   it 'requires three arguments' do
@@ -32,6 +32,6 @@ describe 'CLI' do
   end
   
   it 'states the shortest path' do
-    expect(djikstra('example.txt','A','G').output).to eq 'Shortest path is [A,B,E,G] with total cost 6'
+    expect(djikstra('example.txt','A','G').output).to eq 'Shortest path is [A,B,E,G] with a total cost of 6'
   end
 end
