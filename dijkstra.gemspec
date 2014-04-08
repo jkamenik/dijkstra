@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'djikstra/version'
+require 'dijkstra/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "djikstra"
-  spec.version       = Djikstra::VERSION
+  spec.name          = "dijkstra"
+  spec.version       = Dijkstra::VERSION
   spec.authors       = ["John Kamenik"]
   spec.email         = ["jkamenik@gmail.com"]
-  spec.summary       = %Q{djikstra-#{Djikstra::VERSION}}
-  spec.description   = %q{Runs the Djikstra algorithm against a graph file.}
-  spec.homepage      = "http://github.com/jkamenik/djikstra"
+  spec.summary       = %Q{dijkstra-#{Dijkstra::VERSION}}
+  spec.description   = %q{Runs the Dijkstra algorithm against a graph file.}
+  spec.homepage      = "http://github.com/jkamenik/dijkstra"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
