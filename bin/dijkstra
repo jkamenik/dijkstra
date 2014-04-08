@@ -3,5 +3,5 @@
 LIB_DIR = File.expand_path('../../lib',__FILE__)
 $LOAD_PATH.unshift LIB_DIR
 
-require 'djikstra'
-Djikstra::Cli.new(*ARGV).run
+require 'dijkstra'
+Dijkstra::Cli.new(*ARGV).run
