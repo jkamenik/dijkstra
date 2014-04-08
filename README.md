@@ -1,6 +1,6 @@
 # Dijkstra
 
-[![Build Status](https://travis-ci.org/jkamenik/dijkstra.svg?branch=master)](https://travis-ci.org/jkamenik/djikstra)
+[![Build Status](https://travis-ci.org/jkamenik/dijkstra.svg?branch=master)](https://travis-ci.org/jkamenik/dijkstra)
 
 Dijkstra's algorithm is a graph-based technique for finding the globally shortest path between a starting node and a target node in a non-negative weighted Directed Acyclic Graph (DAG). It is a DAG in that edges are one way and there are no cycles in the graph; it is weighted in that each traversal of the graph has a certain cost. It is used often in graph-based applications such as social, network routing, and logistics supply modeling.
 In its simplest form, the algorithm performs in O(v2) where |v| is the number of vertices in the graph.
