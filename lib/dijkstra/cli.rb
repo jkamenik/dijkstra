@@ -1,4 +1,4 @@
-module Djikstra
+module Dijkstra
   class Cli
     def initialize(*args)
       @file  = args[0]

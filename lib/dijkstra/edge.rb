@@ -1,4 +1,4 @@
-module Djikstra
+module Dijkstra
   class Edge
     attr_accessor :graph, :start, :stop, :weight
     

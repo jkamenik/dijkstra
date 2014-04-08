@@ -1,4 +1,4 @@
-module Djikstra
+module Dijkstra
   class Node
     attr_accessor :name, :distance, :neighbors, :previous_node
     
@@ -35,7 +35,7 @@ module Djikstra
     end
     
     def inspect
-      %Q(#<Djikstra::Node name="#{name}" distance=#{distance}>)
+      %Q(#<Dijkstra::Node name="#{name}" distance=#{distance}>)
     end
     alias_method :to_s, :inspect
   end

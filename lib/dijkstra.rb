@@ -1,10 +1,10 @@
-require "djikstra/version"
-require 'djikstra/cli'
-require 'djikstra/graph'
-require 'djikstra/node'
-require 'djikstra/edge'
+require "dijkstra/version"
+require 'dijkstra/cli'
+require 'dijkstra/graph'
+require 'dijkstra/node'
+require 'dijkstra/edge'
 
-module Djikstra
+module Dijkstra
   class ParseError < RuntimeError; end
   class GraphError < RuntimeError; end
 end

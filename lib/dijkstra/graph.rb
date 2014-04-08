@@ -1,4 +1,4 @@
-module Djikstra
+module Dijkstra
   class Graph
     attr_reader :nodes, :edges, :shortest_path_distance
     
