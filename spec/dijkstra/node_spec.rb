@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Djikstra::Node do
-  let(:node) { Djikstra::Node.new 'A' }
+describe Dijkstra::Node do
+  let(:node) { Dijkstra::Node.new 'A' }
   
   context '.reset' do
     it 'resets distance to infinity' do

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Djikstra::Cli do
+describe Dijkstra::Cli do
   def spec_file(file)
     File.expand_path("../../files/#{file}",__FILE__)
   end
   
   it 'prints usage if args is less then 3' do
-    cli = Djikstra::Cli.new()
+    cli = Dijkstra::Cli.new()
     
     expect(cli).to receive :usage
     
@@ -15,7 +15,7 @@ describe Djikstra::Cli do
   
   context 'parse' do
     it 'returns an array of weighted edges' do
-      items = Djikstra::Cli.new(spec_file('simple.txt'),'A','B').parse
+      items = Dijkstra::Cli.new(spec_file('simple.txt'),'A','B').parse
       
       expect(items).to be_an Array
       expect(items[0]).to eq ['A','B','1',1]
